@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMI CRAFT | Apoiar o Servidor</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  padding: 30px;
+  text-align: center;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background-color: #020617;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+.support-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #020617;
+  padding: 28px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+}
+
+/* X PARA FECHAR */
+.close-x {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #a5b4fc;
+}
+
+/* ===== FORM ===== */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.policy {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  background: #020617;
+  border: 1px solid #334155;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ===== SUCESSO ===== */
+#sucessoMensagem a {
+  display: block;
+  margin-top: 16px;
+  padding: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+#sucessoMensagem button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #334155;
+  color: #e5e7eb;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Apoie o LUMI CRAFT</h1>
+  <p>Seu apoio mantém o servidor online</p>
+</header>
+
+<main class="container">
+  <section class="grid">
+
+    <!-- PRODUTO -->
+    <div class="card">
+      <img src="https://placehold.co/600x400?text=VIP+LUMI">
+      <div class="card-content">
+        <h3>VIP LUMI</h3>
+        <div class="price">R$ 19,99</div>
+      </div>
+      <button class="support-btn"
+        data-produto="VIP LUMI (R$ 19,99)"
+        data-link="https://nubank.com.br/cobrar/6r2bx4/6948baa6-cb79-4a6f-ad78-a03afa88fc5b">
+        Apoiar
+      </button>
+    </div>
+
+  </section>
+</main>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-x" id="closeX">✕</span>
+
+    <h2>Confirmar Pedido</h2>
+
+    <!-- FORMULÁRIO -->
+    <form id="pedidoForm" action="https://formspree.io/f/mwvenqpv" method="POST">
+
+      <!-- CAMPOS OCULTOS -->
+      <input type="hidden" name="NOVO PEDIDO! 🎉">
+      <input type="hidden" name="PRODUTO" id="produto">
+      <input type="hidden" name="Data e hora" id="dataHora">
+
+      <label>Email do jogador:
+        <input type="email" name="Email do jogador" required>
+      </label>
+
+      <label>Whatsapp do jogador:
+        <input type="tel" name="Whatsapp do jogador" required>
+      </label>
+
+      <label>CPF do jogador (opcional):
+        <input type="text" name="CPF do jogador" pattern="[0-9]*">
+      </label>
+
+      <label>Nome do jogador:
+        <input type="text" name="Nome do jogador" required>
+      </label>
+
+      <label>Coordenadas para entrega:
+        <input type="text" name="Coordenadas para entrega" required>
+      </label>
+
+      <label>Informação:
+        <textarea name="Informação" rows="3"></textarea>
+      </label>
+
+      <div class="policy">
+        Você está contribuindo para apoiar o servidor.
+        Os itens são apenas uma forma de recompensa.
+        Não realizamos reembolso.
+      </div>
+
+      <button type="submit">Enviar pedido</button>
+    </form>
+
+    <!-- SUCESSO -->
+    <div id="sucessoMensagem" style="display:none; text-align:center;">
+      <h2>Pedido enviado com sucesso! 🎉</h2>
+      <p>Obrigado por apoiar o servidor 💙</p>
+
+      <a id="btnPagamento" href="#" target="_blank">
+        💳 Fazer pagamento
+      </a>
+
+      <button id="fecharSucesso">Fechar</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById('modal');
+const closeX = document.getElementById('closeX');
+const form = document.getElementById('pedidoForm');
+const produtoInput = document.getElementById('produto');
+const btnPagamento = document.getElementById('btnPagamento');
+
+/* ABRIR MODAL */
+document.querySelectorAll('.support-btn').forEach(btn => {
+  btn.onclick = () => {
+    produtoInput.value = btn.dataset.produto;
+    btnPagamento.href = btn.dataset.link;
+    modal.style.display = 'flex';
+  };
+});
+
+/* FECHAR MODAL */
+closeX.onclick = () => modal.style.display = 'none';
+
+/* ENVIO DO FORM */
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const agora = new Date();
+  document.getElementById('dataHora').value =
+    agora.toLocaleDateString('pt-BR') + ' | ' +
+    agora.toLocaleTimeString('pt-BR');
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(() => {
+    form.style.display = 'none';
+    document.getElementById('sucessoMensagem').style.display = 'block';
+  })
+  .catch(() => alert('Erro ao enviar'));
+});
+
+/* FECHAR SUCESSO */
+document.getElementById('fecharSucesso').onclick = () => {
+  modal.style.display = 'none';
+  form.reset();
+  form.style.display = 'block';
+  document.getElementById('sucessoMensagem').style.display = 'none';
+};
+</script>
+
+</body>
+</html>
